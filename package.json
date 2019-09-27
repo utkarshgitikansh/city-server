@@ -1,0 +1,29 @@
+{
+  "name": "trade",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install cheerio request express",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utkarshgitikansh/trade-ug.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/utkarshgitikansh/trade-ug/issues"
+  },
+  "homepage": "https://github.com/utkarshgitikansh/trade-ug#readme",
+  "dependencies": {
+    "d3-dsv": "^1.1.1",
+    "nightmare": "^3.0.2",
+    "nodemon": "^1.19.1",
+    "phantomjs": "^2.1.7",
+    "play-sound": "^1.1.3",
+    "vo": "^4.0.2"
+  }
+}
