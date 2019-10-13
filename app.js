@@ -105,7 +105,7 @@ app
 
     
 (async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ args: ['--no-sandbox'] });
   const page = await browser.newPage();
 
   var src = city_value;
@@ -218,7 +218,7 @@ await page.goto('https://www.goibibo.com/flights/air-' + `${code}` + '-' +  `${d
 
     
 (async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({ args: ['--no-sandbox'] } );
   const page = await browser.newPage();
 
   var src = city_value;
