@@ -36,6 +36,7 @@ global.city_info = "";
 global.flight = "";
 
 global.hotel = [];
+global.plane = [];
 
 const PORT = process.env.PORT || 8082;
 
@@ -142,7 +143,7 @@ code = 'DEL';
 dcode = 'GOI';
 
 //await page.goto('https://www.goibibo.com/flights/air-' + `${code}` + '-' +  `${dcode}` + '-' + `${dep_date}` + '-' + `${ret_date}` + `-` + `${adult}` + `-`+ `${children}` + `-`+ `${infant}` + `-`+ `${fclass}` + `-`+ `D` + `-` + '/');
-await page.goto('https://www.goibibo.com/flights/air-GOI-DEL-20191016-20191018-1-0-0-E-D/'); 
+await page.goto('https://www.google.com/search?sxsrf=ACYBGNTAbwBTm6ihhz6HuOlAfjL6Sy9cfw%3A1570952190090&ei=_tOiXafbA4yVwgO9lpuYBw&q='+ `${src}` +'+to+ '+ `${dest}` +' +flight+round+trip&oq='+ `${dest}` +'+to+'+ `${src}` +'+round+flight&gs_l=psy-ab.3.0.0i8i30.2957.3875..5505...0.3..0.150.708.0j5......0....1..gws-wiz.......0i71j0i7i30j0i8i7i30.xOO--d0hlMI'); 
 // console.log("req ok");
 // console.log(code);
 // console.log(dcode);
@@ -152,17 +153,17 @@ await page.goto('https://www.goibibo.com/flights/air-GOI-DEL-20191016-20191018-1
 
 
 //await page.goto('https://www.goibibo.com/flights/air-GOI-DEL-20191011-20191013-1-0-0-E-D/'); 
-  const price = await page.evaluate(() => {
-    return document.querySelector(`[class = "ico24 quicks fb"]`).textContent
-  });
+  // const price = await page.evaluate(() => {
+  //   return document.querySelector(`[class = "gws-flights-results__collapsed-itinerary gws-flights-results__itinerary"]`).text()
+  // });
 
-  console.log("price=" + price);
-  const dep_flight = await page.evaluate(() => {
-    return document.querySelector(`[class = "db txtCenter greyLt ico11 padT5"]`).textContent
-  });
-  const ret_flight = await page.evaluate(() => {
-    return document.querySelector(`[class = "db txtCenter greyLt ico11 padT5"]`).textContent
-  });   ///flexCol padL5
+  // console.log("price=" + price);
+  // const dep_flight = await page.evaluate(() => {
+  //   return document.querySelector(`[class = "db txtCenter greyLt ico11 padT5"]`).textContent
+  // });
+  // const ret_flight = await page.evaluate(() => {
+  //   return document.querySelector(`[class = "db txtCenter greyLt ico11 padT5"]`).textContent
+  // });   ///flexCol padL5
 
   
   // const other_data = await page.evaluate(() => {
@@ -179,33 +180,82 @@ await page.goto('https://www.goibibo.com/flights/air-GOI-DEL-20191016-20191018-1
   //   });
     
     
-    var other_data = 
+//     var other_data = 
   
   
-    await page.evaluate(() => {
+//     await page.evaluate(() => {
   
-      const tds = Array.from(document.querySelectorAll('[class = "flexCol padL5"]'))
-        return tds.map(td => {
-           var txt = td.textContent;
-           return txt.replace(/<a [^>]+>[^<]*<\/a>/g, '').trim();
-        });
-      });
+//       const tds = Array.from(document.querySelectorAll('[class = "flexCol padL5"]'))
+//         return tds.map(td => {
+//            var txt = td.textContent;
+//            return txt.replace(/<a [^>]+>[^<]*<\/a>/g, '').trim();
+//         });
+//       });
 
     
-  console.log(price); 
-  console.log(ret_flight); 
-  travel.push(price);
-  travel.push(dep_flight);
-  travel.push(ret_flight);
-  travel.push(other_data);
+//   console.log(price); 
+//   console.log(ret_flight); 
+//   travel.push(price);
+//   travel.push(dep_flight);
+//   travel.push(ret_flight);
+//   travel.push(other_data);
 
 
 
-  console.log(other_data)
+//   console.log(other_data)
 
-//   flight = textContent;
-  res.send(travel);
+// //   flight = textContent;
+//   res.send(travel);
 
+
+
+const firm = await page.evaluate(() => {
+
+
+  const tds = Array.from(document.querySelectorAll('[class = "WW7zhf"]'))
+  return tds.map(td => {
+     var txt = td.textContent;
+     
+     return txt.replace(/<a [^>]+>[^<]*<\/a>/g, '').trim();
+  });
+
+});
+
+const time = await page.evaluate(() => {
+
+
+  const tds = Array.from(document.querySelectorAll('[class = "hdSHM X0FtM"]'))
+  return tds.map(td => {
+     var txt = td.textContent;
+     
+     return txt.replace(/<a [^>]+>[^<]*<\/a>/g, '').trim();
+  });
+
+});
+
+const rate = await page.evaluate(() => {
+
+
+  const tds = Array.from(document.querySelectorAll('[class = "cUntLb"]'))
+  return tds.map(td => {
+     var txt = td.textContent;
+     
+     return txt.replace(/<a [^>]+>[^<]*<\/a>/g, '').trim();
+  });
+
+});
+// const price = await page.evaluate(() => {
+//   return document.querySelector(`[class = "a-no-hover-decoration"]`).textContent
+// });
+
+console.log(firm);
+console.log(time);
+console.log(rate);
+
+plane.push(firm, time, rate);
+res.send(plane)
+
+plane = [];
   browser.close();
 })();
 
@@ -261,7 +311,7 @@ await page.goto('https://www.google.com/search?sxsrf=ACYBGNRPcRvGKM8uoYIGXK1NU1O
 
   });
 
-  var hotel_rate = 
+  // var hotel_rate = 
   
   
   await page.evaluate(() => {
