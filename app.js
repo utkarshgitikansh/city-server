@@ -151,6 +151,7 @@ await page.goto('https://www.goibibo.com/flights/air-' + `${code}` + '-' +  `${d
     return document.querySelector(`[class = "db txtCenter greyLt ico11 padT5"]`).textContent
   });   ///flexCol padL5
 
+  setTimeout(() => { console.log("waiting ....  ")}, 3000);
   // const other_data = await page.evaluate(() => {
   //   return document.querySelector(`[class = "flexCol padL5"]`).textContent
   // });  
