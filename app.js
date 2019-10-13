@@ -141,8 +141,8 @@ console.log(dep_date)
 code = 'DEL';
 dcode = 'GOI';
 
-await page.goto('https://www.goibibo.com/flights/air-' + `${code}` + '-' +  `${dcode}` + '-' + `${dep_date}` + '-' + `${ret_date}` + `-` + `${adult}` + `-`+ `${children}` + `-`+ `${infant}` + `-`+ `${fclass}` + `-`+ `D` + `-` + '/');
-
+//await page.goto('https://www.goibibo.com/flights/air-' + `${code}` + '-' +  `${dcode}` + '-' + `${dep_date}` + '-' + `${ret_date}` + `-` + `${adult}` + `-`+ `${children}` + `-`+ `${infant}` + `-`+ `${fclass}` + `-`+ `D` + `-` + '/');
+await page.goto('https://www.goibibo.com/flights/air-GOI-DEL-20191016-20191018-1-0-0-E-D/'); 
 // console.log("req ok");
 // console.log(code);
 // console.log(dcode);
