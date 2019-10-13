@@ -244,15 +244,42 @@ const rate = await page.evaluate(() => {
   });
 
 });
+
+
+const dep1 = await page.evaluate(() => {
+
+
+  const tds = Array.from(document.querySelectorAll('[id = "flt-departuredate"]'))
+  return tds.map(td => {
+     var txt = td.textContent;
+     
+     return txt.replace(/<a [^>]+>[^<]*<\/a>/g, '').trim();
+  });
+
+});
+
+const ret1 = await page.evaluate(() => {
+
+
+  const tds = Array.from(document.querySelectorAll('[class = "ac2Orc"]'))
+  return tds.map(td => {
+     var txt = td.textContent;
+     
+     return txt.replace(/<a [^>]+>[^<]*<\/a>/g, '').trim();
+  });
+
+});
 // const price = await page.evaluate(() => {
 //   return document.querySelector(`[class = "a-no-hover-decoration"]`).textContent
-// });
+// }); /// flt-departuredate  ac2Orc
 
 console.log(firm);
 console.log(time);
 console.log(rate);
+console.log(dep1)
+console.log(ret1)
 
-plane.push(firm, time, rate);
+plane.push(firm, time, rate, dep1, ret1);
 res.send(plane)
 
 plane = [];
