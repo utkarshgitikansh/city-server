@@ -140,8 +140,14 @@ console.log(dep_date)
 
 await page.goto('https://www.goibibo.com/flights/air-' + `${code}` + '-' +  `${dcode}` + '-' + `${dep_date}` + '-' + `${ret_date}` + `-` + `${adult}` + `-`+ `${children}` + `-`+ `${infant}` + `-`+ `${fclass}` + `-`+ `D` + `-` + '/');
 
-console.log("req ok");
-setTimeout(() => { console.log("waiting ....  ")}, 3000);
+// console.log("req ok");
+console.log(code);
+console.log(dcode);
+console.log(dep_date);
+// console.log("req ok");
+// console.log("req ok");
+
+
 //await page.goto('https://www.goibibo.com/flights/air-GOI-DEL-20191011-20191013-1-0-0-E-D/'); 
   const price = await page.evaluate(() => {
     return document.querySelector(`[class = "ico24 quicks fb"]`).textContent
