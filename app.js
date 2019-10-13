@@ -140,8 +140,9 @@ console.log(dep_date)
 
 await page.goto('https://www.goibibo.com/flights/air-' + `${code}` + '-' +  `${dcode}` + '-' + `${dep_date}` + '-' + `${ret_date}` + `-` + `${adult}` + `-`+ `${children}` + `-`+ `${infant}` + `-`+ `${fclass}` + `-`+ `D` + `-` + '/');
 
+console.log("req ok");
 //await page.goto('https://www.goibibo.com/flights/air-GOI-DEL-20191011-20191013-1-0-0-E-D/'); 
-  const textContent = await page.evaluate(() => {
+  const price = await page.evaluate(() => {
     return document.querySelector(`[class = "ico24 quicks fb"]`).textContent
   });
   const dep_flight = await page.evaluate(() => {
@@ -179,9 +180,9 @@ await page.goto('https://www.goibibo.com/flights/air-' + `${code}` + '-' +  `${d
       });
 
     
-  console.log(textContent); 
+  console.log(price); 
   console.log(ret_flight); 
-  travel.push(textContent);
+  travel.push(price);
   travel.push(dep_flight);
   travel.push(ret_flight);
   travel.push(other_data);
