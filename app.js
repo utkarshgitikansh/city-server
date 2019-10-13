@@ -118,25 +118,28 @@ app
   var fclass = class_value;
   var travel = [];
 
-  await page.goto("https://www.google.com/search?sxsrf=ACYBGNTZzZij6d6ch34fLPFRO5NSzT7ZQw:1570688437307&q=" + `${src}` + "+airport+code&sa=X&ved=2ahUKEwi01-6yhpHlAhXPfCsKHV8SAYwQ1QIoB3oECAoQCA&biw=1440&bih=662");
+//   await page.goto("https://www.google.com/search?sxsrf=ACYBGNTZzZij6d6ch34fLPFRO5NSzT7ZQw:1570688437307&q=" + `${src}` + "+airport+code&sa=X&ved=2ahUKEwi01-6yhpHlAhXPfCsKHV8SAYwQ1QIoB3oECAoQCA&biw=1440&bih=662");
 
-  const code = await page.evaluate(() => {
-    return document.querySelector(`.Z0LcW`).textContent
-  });
+//   const code = await page.evaluate(() => {
+//     return document.querySelector(`.Z0LcW`).textContent
+//   });
 
-console.log(code); 
-travel.push(code);
+// console.log(code); 
+// travel.push(code);
 
-await page.goto("https://www.google.com/search?sxsrf=ACYBGNTZzZij6d6ch34fLPFRO5NSzT7ZQw:1570688437307&q=" + `${dest}` + "+airport+code&sa=X&ved=2ahUKEwi01-6yhpHlAhXPfCsKHV8SAYwQ1QIoB3oECAoQCA&biw=1440&bih=662");
+// await page.goto("https://www.google.com/search?sxsrf=ACYBGNTZzZij6d6ch34fLPFRO5NSzT7ZQw:1570688437307&q=" + `${dest}` + "+airport+code&sa=X&ved=2ahUKEwi01-6yhpHlAhXPfCsKHV8SAYwQ1QIoB3oECAoQCA&biw=1440&bih=662");
 
-  const dcode = await page.evaluate(() => {
-    return document.querySelector(`.Z0LcW`).textContent
-  });
+//   const dcode = await page.evaluate(() => {
+//     return document.querySelector(`.Z0LcW`).textContent
+//   });
 
-console.log(dcode); 
-travel.push(dcode);
+// console.log(dcode); 
+// travel.push(dcode);
 
 console.log(dep_date)
+
+code = 'DEL';
+dcode = 'GOI';
 
 await page.goto('https://www.goibibo.com/flights/air-' + `${code}` + '-' +  `${dcode}` + '-' + `${dep_date}` + '-' + `${ret_date}` + `-` + `${adult}` + `-`+ `${children}` + `-`+ `${infant}` + `-`+ `${fclass}` + `-`+ `D` + `-` + '/');
 
