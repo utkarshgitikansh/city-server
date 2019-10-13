@@ -141,9 +141,9 @@ console.log(dep_date)
 await page.goto('https://www.goibibo.com/flights/air-' + `${code}` + '-' +  `${dcode}` + '-' + `${dep_date}` + '-' + `${ret_date}` + `-` + `${adult}` + `-`+ `${children}` + `-`+ `${infant}` + `-`+ `${fclass}` + `-`+ `D` + `-` + '/');
 
 // console.log("req ok");
-console.log(code);
-console.log(dcode);
-console.log(dep_date);
+// console.log(code);
+// console.log(dcode);
+// console.log(dep_date);
 // console.log("req ok");
 // console.log("req ok");
 
@@ -152,6 +152,8 @@ console.log(dep_date);
   const price = await page.evaluate(() => {
     return document.querySelector(`[class = "ico24 quicks fb"]`).textContent
   });
+
+  console.log("price=" + price);
   const dep_flight = await page.evaluate(() => {
     return document.querySelector(`[class = "db txtCenter greyLt ico11 padT5"]`).textContent
   });
